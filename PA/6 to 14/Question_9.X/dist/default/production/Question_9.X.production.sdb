@@ -1,0 +1,97 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4550 ]
+[d frameptr 4065 ]
+"4 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"53 /Users/mokshadvaidya/MPLABXProjects/Question_9.X/Buzzer_TMR0_ISR.c
+[v _Timer_ISR Timer_ISR `IIH(v  1 e 1 0 ]
+"66
+[v _main main `(v  1 e 1 0 ]
+[s S25 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
+]
+"2998 /Applications/microchip/mplabx/v5.50/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4550.h
+[s S33 . 1 `uc 1 LA0 1 0 :1:0 
+`uc 1 LA1 1 0 :1:1 
+`uc 1 LA2 1 0 :1:2 
+`uc 1 LA3 1 0 :1:3 
+`uc 1 LA4 1 0 :1:4 
+`uc 1 LA5 1 0 :1:5 
+`uc 1 LA6 1 0 :1:6 
+]
+[u S41 . 1 `S25 1 . 1 0 `S33 1 . 1 0 ]
+[v _LATAbits LATAbits `VES41  1 e 1 @3977 ]
+[s S62 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+]
+"3457
+[s S70 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+]
+[u S78 . 1 `S62 1 . 1 0 `S70 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES78  1 e 1 @3986 ]
+"8069
+[v _T0CON T0CON `VEuc  1 e 1 @4053 ]
+"8139
+[v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
+"9741
+[v _GIE GIE `VEb  1 e 0 @32663 ]
+"10269
+[v _PEIE PEIE `VEb  1 e 0 @32662 ]
+"10812
+[v _TMR0IE TMR0IE `VEb  1 e 0 @32661 ]
+"10815
+[v _TMR0IF TMR0IF `VEb  1 e 0 @32658 ]
+"10821
+[v _TMR0ON TMR0ON `VEb  1 e 0 @32431 ]
+"51 /Users/mokshadvaidya/MPLABXProjects/Question_9.X/Buzzer_TMR0_ISR.c
+[v _c c `i  1 e 2 0 ]
+"66
+[v _main main `(v  1 e 1 0 ]
+{
+"83
+} 0
+"53
+[v _Timer_ISR Timer_ISR `IIH(v  1 e 1 0 ]
+{
+"64
+} 0

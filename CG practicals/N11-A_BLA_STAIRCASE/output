@@ -1,0 +1,9 @@
+mllab-09@mllab09:~/Desktop/S150058703$ g++ stairs.c -lglut -lGL -lGLEW -lGLU -o stair
+mllab-09@mllab09:~/Desktop/S150058703$ ./stair
+
+Enter lenght :: 360
+^C
+mllab-09@mllab09:~/Desktop/S150058703$ ./stair
+
+Enter lenght :: 300
+

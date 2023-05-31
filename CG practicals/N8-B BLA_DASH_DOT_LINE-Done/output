@@ -1,0 +1,96 @@
+*********************************************************
+OUTPUT
+
+Menu 
+1) With-Out Using Mouse 
+2) With Using Mouse
+3) Exit
+Enter Your choice : 1
+
+*********************************************************
+
+Enter Initial Points 
+
+Enter X Co-Ordinate : 10
+
+Enter Y Co-Ordinate : 10
+
+*********************************************************
+
+Enter final Points 
+
+Enter X Co-Ordinate :  100
+
+Enter Y Co-Ordinate :  150
+
+*********************************************************
+
+Revisit With-Out Mouse Function : 
+Press 0 :	No
+Press 1 :	yes
+Enter Your Choice : 1
+
+*********************************************************
+
+Enter Initial Points 
+
+Enter X Co-Ordinate : 100
+
+Enter Y Co-Ordinate : 150
+
+*********************************************************
+
+Enter final Points 
+
+Enter X Co-Ordinate :  100
+
+Enter Y Co-Ordinate :  10
+
+*********************************************************
+
+Revisit With-Out Mouse Function : 
+Press 0 :	No
+Press 1 :	yes
+Enter Your Choice : 1
+
+*********************************************************
+
+Enter Initial Points 
+
+Enter X Co-Ordinate : 10
+
+Enter Y Co-Ordinate : 10
+
+*********************************************************
+
+Enter final Points 
+
+Enter X Co-Ordinate :  100
+
+Enter Y Co-Ordinate :  10
+
+*********************************************************
+
+Revisit With-Out Mouse Function : 
+Press 0 :	No
+Press 1 :	yes
+Enter Your Choice : 0
+
+*********************************************************
+
+Menu 
+1) With-Out Using Mouse 
+2) With Using Mouse
+3) Exit
+Enter Your choice : 2
+
+*********************************************************
+
+Menu 
+1) With-Out Using Mouse 
+2) With Using Mouse
+3) Exit
+Enter Your choice : 3
+
+Program Ends
+

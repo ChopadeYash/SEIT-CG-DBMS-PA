@@ -1,0 +1,52 @@
+/*
+ * File:   updated3.c
+ * Author: Yash
+ *
+ * Created on 22 May, 2022, 1:12 AM
+ */
+
+
+#include <xc.h>
+#include <stdio.h>
+
+#include <xc.h>
+#include<stdio.h>
+
+void putch(unsigned char data) {
+    while (!PIR1bits.TXIF)
+
+        continue;
+    TXREG = data;
+}
+
+void init_uart(void) {
+    TXSTAbits.TXEN = 1;
+    RCSTAbits.SPEN = 1;
+}
+
+void main(void) {
+    
+    init_uart();
+    
+    int arr[100];
+    int n = 100;
+    for (int i = 0; i < n; i++) {
+        arr[i] = n-i;
+    }
+    int i, j, position, swap;
+    for (i = 0; i < (n - 1); i++) {
+        position = i;
+        for (j = i + 1; j < n; j++) {
+            if (arr[position] > arr[j])
+                position = j;
+        }
+        if (position != i) {
+            swap = arr[i];
+            arr[i] = arr[position];
+            arr[position] = swap;
+        }
+    }
+    for (i = 0; i < n; i++)
+        printf("%d\t", arr[i]);
+    return;
+}

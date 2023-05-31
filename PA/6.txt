@@ -1,0 +1,37 @@
+/*
+ * File:   updated6.c
+ * Author: Yash
+ *
+ * Created on 21 May, 2022, 11:55 AM
+ */
+
+
+#include <xc.h>
+#include <stdio.h>
+#include <stdlib.h>
+#define _XTAL_FREQ 4000000
+
+void delaybytmr0(){
+    T0CONbits.TMR0ON = 1;
+    while(INTCONbits.TMR0IF == 0);
+    T0CONbits.TMR0ON = 0;
+    INTCONbits.TMR0IF = 0;
+    
+}
+
+void main(void) {
+    TRISB = 0;
+    T0CON = 7;
+    INTCONbits.TMR0IF = 0;
+    LATB = 0;
+    while(1){
+        TMR0 = 46004;
+        delaybytmr0();
+        LATB = 170;
+        TMR0 = 26474;
+        delaybytmr0();
+        LATB = 85;
+    }
+    
+    return;
+}

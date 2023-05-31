@@ -1,0 +1,23 @@
+/*
+ * File:   updated1.c
+ * Author: Yash
+ *
+ * Created on 20 May, 2022, 12:13 AM
+ */
+
+#include <xc.h>
+
+void main(void) {
+    TRISD=0;
+    int n=100;
+    int arr[100];
+    for(int i=0; i<n; i++){
+        arr[i] = i;
+    }
+    int sum=0;
+    for(int i=0; i<n; i++){
+        sum = sum + arr[i];
+    }
+    PORTD=sum;
+    return;
+}

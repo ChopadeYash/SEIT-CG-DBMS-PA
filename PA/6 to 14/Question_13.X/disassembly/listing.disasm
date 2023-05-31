@@ -1,0 +1,271 @@
+Disassembly Listing for Question_13
+Generated From:
+/Users/mokshadvaidya/MPLABXProjects/Question_13.X/dist/default/debug/Question_13.X.debug.elf
+May 22, 2022 1:16:38 PM
+
+---  /tmp/xciGMxI1d.s  ----------------------------------------------------------------------------------
+096E  0E00     MOVLW 0x0
+0970  6EF8     MOVWF TBLPTRU, ACCESS
+0972  0E08     MOVLW 0x8
+0974  6EF7     MOVWF TBLPTRH, ACCESS
+0976  0100     MOVLB 0x0
+0978  EFA1     GOTO 0x942
+---  /Users/mokshadvaidya/MPLABXProjects/Question_13.X/Uart_Transmit_PICT.c  ----------------------------
+1:             /*
+2:              * File:   Uart_Transmit_PICT.c
+3:              * Author: mokshadvaidya
+4:              *
+5:              * Created on May 22, 2022, 1:00 PM
+6:              */
+7:             
+8:             
+9:             #include <xc.h>
+10:            #define _XTAL_FREQ 4000000
+11:            
+12:            
+13:            void init_UART(unsigned int baud_rate){
+14:                TRISCbits.RC6 = 0;
+0910  9C94     BCF TRISC, 6, ACCESS
+15:                TRISCbits.RC7 = 1;
+0912  8E94     BSF TRISC, 7, ACCESS
+16:                TXSTA = 32;
+0914  0E20     MOVLW 0x20
+0916  6EAC     MOVWF TXSTA, ACCESS
+17:                RCSTA = 144;  
+0918  0E90     MOVLW 0x90
+091A  6EAB     MOVWF RCSTA, ACCESS
+18:                SPBRG = ((_XTAL_FREQ/64)/baud_rate)-1;
+091C  0E24     MOVLW 0x24
+091E  6E01     MOVWF __pcstackCOMRAM, ACCESS
+0920  0EF4     MOVLW 0xF4
+0922  6E02     MOVWF ___rparam_used, ACCESS
+0924  0E00     MOVLW 0x0
+0926  6E03     MOVWF 0x3, ACCESS
+0928  0E00     MOVLW 0x0
+092A  6E04     MOVWF 0x4, ACCESS
+092C  C00F     MOVFF baud_rate, divisor
+092E  F005     NOP
+0930  C010     MOVFF 0x10, 0x6
+0932  F006     NOP
+0934  6A07     CLRF 0x7, ACCESS
+0936  6A08     CLRF 0x8, ACCESS
+0938  EC02     CALL 0x804, 0
+093A  F004     NOP
+093C  0401     DECF __pcstackCOMRAM, W, ACCESS
+093E  6EAF     MOVWF SPBRG, ACCESS
+19:                
+20:            }
+0940  0012     RETURN 0
+21:            
+22:            void sendChar(unsigned char data){
+0958  6E01     MOVWF __pcstackCOMRAM, ACCESS
+23:                while(TXSTAbits.TRMT == 0);             //Wait while transmit register is empty
+095A  A2AC     BTFSS TXSTA, 1, ACCESS
+095C  EFB2     GOTO 0x964
+095E  F004     NOP
+0960  EFB4     GOTO 0x968
+0962  F004     NOP
+0964  EFAD     GOTO 0x95A
+0966  F004     NOP
+24:                TXREG = data;                           
+0968  C001     MOVFF __pcstackCOMRAM, TXREG
+096A  FFAD     NOP
+25:            
+26:            }
+096C  0012     RETURN 0
+27:            
+28:            
+29:            
+30:            
+31:            void main(void) {
+32:                init_UART(9600);
+0942  0E25     MOVLW 0x25
+0944  6E10     MOVWF 0x10, ACCESS
+0946  0E80     MOVLW 0x80
+0948  6E0F     MOVWF baud_rate, ACCESS
+094A  EC88     CALL 0x910, 0
+094C  F004     NOP
+33:                sendChar("M");
+094E  0E01     MOVLW 0x1
+0950  ECAC     CALL 0x958, 0
+0952  F004     NOP
+34:                return;
+35:            }
+0954  EF00     GOTO 0x0
+0956  F000     NOP
+---  /Applications/microchip/xc8/v2.35/pic/sources/c99/common/aldiv.c  ----------------------------------
+1:             // long signed unsigned division
+2:             
+3:             signed long int
+4:             #ifdef __PICC__
+5:             __aldiv(signed long int divisor, signed long int dividend)
+6:             #else
+7:             __aldiv(signed long int dividend, signed long int divisor)
+8:             #endif
+9:             {
+10:            	signed long int	quotient;
+11:            	unsigned char	counter, sign;
+12:            
+13:            	sign = 0;
+0804  0E00     MOVLW 0x0
+0806  6E0A     MOVWF sign, ACCESS
+14:            	if(divisor < 0) {
+0808  BE08     BTFSC 0x8, 7, ACCESS
+080A  EF0B     GOTO 0x816
+080C  F004     NOP
+080E  EF09     GOTO 0x812
+0810  F004     NOP
+0812  EF15     GOTO 0x82A
+0814  F004     NOP
+15:            		divisor = -divisor;
+0816  1E08     COMF 0x8, F, ACCESS
+0818  1E07     COMF 0x7, F, ACCESS
+081A  1E06     COMF 0x6, F, ACCESS
+081C  6C05     NEGF divisor, ACCESS
+081E  0E00     MOVLW 0x0
+0820  2206     ADDWFC 0x6, F, ACCESS
+0822  2207     ADDWFC 0x7, F, ACCESS
+0824  2208     ADDWFC 0x8, F, ACCESS
+16:            		sign = 1;
+0826  0E01     MOVLW 0x1
+0828  6E0A     MOVWF sign, ACCESS
+17:            	}
+18:            	if(dividend < 0) {
+082A  BE04     BTFSC 0x4, 7, ACCESS
+082C  EF1C     GOTO 0x838
+082E  F004     NOP
+0830  EF1A     GOTO 0x834
+0832  F004     NOP
+0834  EF26     GOTO 0x84C
+0836  F004     NOP
+19:            		dividend = -dividend;
+0838  1E04     COMF 0x4, F, ACCESS
+083A  1E03     COMF 0x3, F, ACCESS
+083C  1E02     COMF ___rparam_used, F, ACCESS
+083E  6C01     NEGF __pcstackCOMRAM, ACCESS
+0840  0E00     MOVLW 0x0
+0842  2202     ADDWFC ___rparam_used, F, ACCESS
+0844  2203     ADDWFC 0x3, F, ACCESS
+0846  2204     ADDWFC 0x4, F, ACCESS
+20:            		sign ^= 1;
+0848  0E01     MOVLW 0x1
+084A  1A0A     XORWF sign, F, ACCESS
+21:            	}
+22:            	quotient = 0;
+084C  0E00     MOVLW 0x0
+084E  6E0B     MOVWF quotient, ACCESS
+0850  0E00     MOVLW 0x0
+0852  6E0C     MOVWF 0xC, ACCESS
+0854  0E00     MOVLW 0x0
+0856  6E0D     MOVWF 0xD, ACCESS
+0858  0E00     MOVLW 0x0
+085A  6E0E     MOVWF 0xE, ACCESS
+23:            	if(divisor != 0) {
+085C  5005     MOVF divisor, W, ACCESS
+085E  1006     IORWF 0x6, W, ACCESS
+0860  1007     IORWF 0x7, W, ACCESS
+0862  1008     IORWF 0x8, W, ACCESS
+0864  B4D8     BTFSC STATUS, 2, ACCESS
+0866  EF37     GOTO 0x86E
+0868  F004     NOP
+086A  EF39     GOTO 0x872
+086C  F004     NOP
+086E  EF6F     GOTO 0x8DE
+0870  F004     NOP
+24:            		counter = 1;
+0872  0E01     MOVLW 0x1
+0874  6E09     MOVWF counter, ACCESS
+25:            		while(((unsigned long)divisor & 0x80000000UL) == 0) {
+0876  EF43     GOTO 0x886
+0878  F004     NOP
+0886  AE08     BTFSS 0x8, 7, ACCESS
+0888  EF48     GOTO 0x890
+088A  F004     NOP
+088C  EF4A     GOTO 0x894
+088E  F004     NOP
+0890  EF3D     GOTO 0x87A
+0892  F004     NOP
+26:            			divisor <<= 1;
+087A  90D8     BCF STATUS, 0, ACCESS
+087C  3605     RLCF divisor, F, ACCESS
+087E  3606     RLCF 0x6, F, ACCESS
+0880  3607     RLCF 0x7, F, ACCESS
+0882  3608     RLCF 0x8, F, ACCESS
+27:            			counter++;
+0884  2A09     INCF counter, F, ACCESS
+28:            		}
+29:            		do {
+30:            			quotient <<= 1;
+0894  90D8     BCF STATUS, 0, ACCESS
+0896  360B     RLCF quotient, F, ACCESS
+0898  360C     RLCF 0xC, F, ACCESS
+089A  360D     RLCF 0xD, F, ACCESS
+089C  360E     RLCF 0xE, F, ACCESS
+31:            			if((unsigned long)divisor <= (unsigned long)dividend) {
+089E  5005     MOVF divisor, W, ACCESS
+08A0  5C01     SUBWF __pcstackCOMRAM, W, ACCESS
+08A2  5006     MOVF 0x6, W, ACCESS
+08A4  5802     SUBWFB ___rparam_used, W, ACCESS
+08A6  5007     MOVF 0x7, W, ACCESS
+08A8  5803     SUBWFB 0x3, W, ACCESS
+08AA  5008     MOVF 0x8, W, ACCESS
+08AC  5804     SUBWFB 0x4, W, ACCESS
+08AE  A0D8     BTFSS STATUS, 0, ACCESS
+08B0  EF5C     GOTO 0x8B8
+08B2  F004     NOP
+08B4  EF5E     GOTO 0x8BC
+08B6  F004     NOP
+08B8  EF67     GOTO 0x8CE
+08BA  F004     NOP
+32:            				dividend -= divisor;
+08BC  5005     MOVF divisor, W, ACCESS
+08BE  5E01     SUBWF __pcstackCOMRAM, F, ACCESS
+08C0  5006     MOVF 0x6, W, ACCESS
+08C2  5A02     SUBWFB ___rparam_used, F, ACCESS
+08C4  5007     MOVF 0x7, W, ACCESS
+08C6  5A03     SUBWFB 0x3, F, ACCESS
+08C8  5008     MOVF 0x8, W, ACCESS
+08CA  5A04     SUBWFB 0x4, F, ACCESS
+33:            				quotient |= 1;
+08CC  800B     BSF quotient, 0, ACCESS
+34:            			}
+35:            			*(unsigned long int *)&divisor >>= 1;
+08CE  90D8     BCF STATUS, 0, ACCESS
+08D0  3208     RRCF 0x8, F, ACCESS
+08D2  3207     RRCF 0x7, F, ACCESS
+08D4  3206     RRCF 0x6, F, ACCESS
+08D6  3205     RRCF divisor, F, ACCESS
+36:            		} while(--counter != 0);
+08D8  2E09     DECFSZ counter, F, ACCESS
+08DA  EF4A     GOTO 0x894
+08DC  F004     NOP
+37:            	}
+38:            	if(sign)
+08DE  500A     MOVF sign, W, ACCESS
+08E0  B4D8     BTFSC STATUS, 2, ACCESS
+08E2  EF75     GOTO 0x8EA
+08E4  F004     NOP
+08E6  EF77     GOTO 0x8EE
+08E8  F004     NOP
+08EA  EF7F     GOTO 0x8FE
+08EC  F004     NOP
+39:            		quotient = -quotient;
+08EE  1E0E     COMF 0xE, F, ACCESS
+08F0  1E0D     COMF 0xD, F, ACCESS
+08F2  1E0C     COMF 0xC, F, ACCESS
+08F4  6C0B     NEGF quotient, ACCESS
+08F6  0E00     MOVLW 0x0
+08F8  220C     ADDWFC 0xC, F, ACCESS
+08FA  220D     ADDWFC 0xD, F, ACCESS
+08FC  220E     ADDWFC 0xE, F, ACCESS
+40:            	return quotient;
+08FE  C00B     MOVFF quotient, __pcstackCOMRAM
+0900  F001     NOP
+0902  C00C     MOVFF 0xC, ___rparam_used
+0904  F002     NOP
+0906  C00D     MOVFF 0xD, 0x3
+0908  F003     NOP
+090A  C00E     MOVFF 0xE, 0x4
+090C  F004     NOP
+41:            }
+090E  0012     RETURN 0

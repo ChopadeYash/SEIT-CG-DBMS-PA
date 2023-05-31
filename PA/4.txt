@@ -1,0 +1,32 @@
+/*
+ * File:   updated4.c
+ * Author: Yash
+ *
+ * Created on 20 May, 2022, 2:30 PM
+ */
+
+
+#include <xc.h>
+#include<pic18f4550.h>
+
+void main(void) {
+    int num1, num2;
+    int result, i;
+    int choice;
+    TRISD = 0; //config port for giving output
+    result = 0;
+    num1 = 3;
+    num2 = 2;
+    switch (choice) {
+        case 1:
+            for (i = 1; i <= num2; i++) {
+                result += num1;
+            }
+            break;
+        case 2:
+            result = num1 / num2;
+            break;
+    }
+    
+    PORTD = result;
+}

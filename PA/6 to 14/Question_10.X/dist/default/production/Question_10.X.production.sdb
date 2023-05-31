@@ -1,0 +1,67 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4550 ]
+[d frameptr 4065 ]
+"4 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 /Applications/microchip/xc8/v2.35/pic/sources/c99/common/Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"11 /Users/mokshadvaidya/MPLABXProjects/Question_10.X/PWM_DCMotor_decriment.c
+[v _main main `(v  1 e 1 0 ]
+[s S24 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"3875 /Applications/microchip/mplabx/v5.50/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4550.h
+[s S31 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S38 . 1 `S24 1 . 1 0 `S31 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES38  1 e 1 @3988 ]
+"6327
+[v _CCP1CON CCP1CON `VEuc  1 e 1 @4029 ]
+"6496
+[v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
+"7200
+[v _T2CON T2CON `VEuc  1 e 1 @4042 ]
+"7298
+[v _PR2 PR2 `VEuc  1 e 1 @4043 ]
+"7408
+[v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
+"10842
+[v _TMR2IF TMR2IF `VEb  1 e 0 @31985 ]
+"10848
+[v _TMR2ON TMR2ON `VEb  1 e 0 @32338 ]
+"11 /Users/mokshadvaidya/MPLABXProjects/Question_10.X/PWM_DCMotor_decriment.c
+[v _main main `(v  1 e 1 0 ]
+{
+"24
+} 0
